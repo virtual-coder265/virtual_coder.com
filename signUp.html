@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sign Up Form</title>
+	<style>
+	.form-group {
+	  position: relative;
+	  margin-bottom: 1.5rem;
+	}
+
+	.form-control-input {
+	  font-size: 1.2rem;
+	  padding: 0.8rem 0.5rem;
+	  display: block;
+	  width: 100%;
+	  height: 4.4rem;
+	  border: none;
+	  border-bottom: 0.3rem solid #cccccc;
+	  background-color: transparent;
+	  transition: border-color 0.5s;
+	}
+
+	.form-control-input:focus {
+	  outline: none;
+	  border-color: #6c757d;
+	}
+
+	.form-control-input:valid {
+	  border-color: #28a745;
+	}
+
+	.form-control-input:invalid {
+	  border-color: #dc3545;
+	}
+
+	.form-control-input::-webkit-input-placeholder {
+	  color: #cccccc;
+	}
+
+	.form-control-input::-moz-placeholder {
+	  color: #cccccc;
+	}
+
+	.form-control-input:-ms-input-placeholder {
+	  color: #cccccc;
+	}
+
+	.form-control-input::-ms-input-placeholder {
+	  color: #cccccc;
+	}
+
+	.form-control-input::placeholder {
+	  color: #cccccc;
+	}
+
+	.label-control {
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  font-size: 1.2rem;
+	  padding: 0.4rem 0.5rem;
+	  pointer-events: none;
+	  transition: all 0.5s;
+	}
+
+	.form-control-input:focus + .label-control,
+	.form-control-input:valid + .label-control {
+	  top: -2rem;
+	  font-size: 1rem;
+	  color: #6c757d;
+	}
+
+	.checkbox {
+	  font-size: 1rem;
+	  display: block;
+	  position: relative;
+	  padding-left: 2.5rem;
+	  margin-bottom: 2rem;
+	  cursor: pointer;
+	}
+
+	.checkbox input {
+	  position: absolute;
+	  opacity: 0;
+	  cursor: pointer;
+	  height: 0;
+	  width: 0;
+	}
+
+	.checkbox:hover input ~ .checkmark {
+	  background-color: #ccc;
+	}
+
+	.checkbox input:checked ~ .checkmark {
+	  background-color: #2196F3;
+	}
+
+	.checkmark {
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  height: 1.5rem;
+	  width: 1.5rem;
+	  background-color: #eee;
+	}
+
+	.checkmark:after {
+	  content: "";
+	  position: absolute;
+	  display: none;
+	}
+
+	.checkbox input:checked ~ .checkmark:after {
+	  display: block;
+	}
+
+	.checkbox .checkmark:after {
+	  left: 0.5rem;
+	  top: 0.2rem;
+	  width: 0.5rem;
+	  height: 0.9rem;
+	  border: solid white;
+	  border-width: 0 0.2rem 0.2rem 0;
+	  -webkit-transform: rotate(45deg);
+	  -ms-transform: rotate(45deg);
+	  transform: rotate(45deg);
+	}
+
+	.form-control-submit-button {
+	  font-size: 1}
+    </style>
+    </head>
+    <form method="post" id="signUpForm" autocomplete="on" onsubmit="return validateForm(this)">
+        <div class="form-group">
+          <input type="email" class="form-control-input" id="email" required>
+          <label class="label-control" for="email">Email</label>
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control-input" id="name" required>
+          <label class="label-control" for="name">Name</label>
+        </div>
+        <div class="form-group">
+          <input type="tel" class="form-control-input" id="phone" required>
+          <label class="label-control" for="tel">Whatsapp Number</label>
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control-input" id="course" list="courses" required>
+          <label class="label-control" for="course">Course</label>
+          <datalist id="courses">
+            <option value="Introduction to Web design and development- beginner"></option>
+            <option value="Dynamic Web development-Advanced"></option>
+            <option value="Proffesional Web development- Pro"></option>
+            <option value="Computer Programming -Java"></option>
+            <option value="Computer Programming - Python"></option>
+            <option value="Computer Programming - C++"></option>
+            <option value="Mobile App development -java"></option>
+            <option value="Mobile App development- React Native"></option>
+            <option value="Data Analysist and Database Administration"></option>
+          </datalist>
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control-input" id="password" required>
+          <label class="label-control" for="password">Password</label>
+        </div>
+        <div class="form-group">
+          <input class="form-control-input" type="text" name="Plan" id="payment" list="plans" required>
+          <label class="label-control" for="payment">Payment Plan</label> 
+          <datalist id="plans">
+            <option value="Subscription Payment Plan"></option>
+            <option value="Charge Per course payment plan"></option>
+          </datalist>
+        </div>
+        <div class="form-group checkbox">
+          <input type="checkbox" id="terms" value="Agreed-to-Terms" required>I have read and understood the <a href="terms.html">Privacy Policy</a> and agrees to the <a href="terms.html">Terms & Conditions</a> stated therein.
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control-input" id="country" list="countries" required>
+          <label class="label-control" for="country">Country</label>
+          <datalist id="countries">
+            <option value="Malawi"></option>
+            <option value="Other Country"></option>
+          </datalist>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="form-control-submit-button" id="submitButton">Sign Up</button>
+        </div>
+      </form>
+      
+      <div id="successModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <p>Success! Your form has been submitted.</p>
+        </div>
+      </div>
+      

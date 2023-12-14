@@ -1,0 +1,15 @@
+.inputError{
+    background-color: blueviolet;
+    color: red;
+    letter-spacing: 1.2rem;
+    display: none;
+    width: max-content;
+    height: max-content;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 7px;
+}
+#errorSubmit
+{
+    border: 2px solid red;
+}
